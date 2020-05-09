@@ -45,10 +45,11 @@ layui.define(["jquery", "miniMenu", "element", "miniPage", "miniTheme"], functio
                 xhrFields: {
                     withCredentials: true
                 },
-                success: function (data) {
-                    if (data == null) {
+                success: function (info) {
+                    if (info == null) {
                         miniAdmin.error('暂无菜单信息')
                     } else {
+                        var data = info.result;
                         miniAdmin.renderLogo(data.logoInfo);
                         miniAdmin.renderClear(options.clearUrl);
                         miniAdmin.renderAnim(options.pageAnim);
