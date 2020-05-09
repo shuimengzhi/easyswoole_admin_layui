@@ -208,10 +208,6 @@
                                 , content: res.msg
                             });
                         } else {
-                            var token = res.result.token;
-                            var payload = jwt_decode(token);
-                            console.log(token);
-                            console.log(payload);
                             layer.msg('登录成功', function () {
                                 window.location = '../index.php';
                             });
