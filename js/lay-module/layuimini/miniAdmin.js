@@ -46,10 +46,13 @@ layui.define(["jquery", "miniMenu", "element", "miniPage", "miniTheme"], functio
                     withCredentials: true
                 },
                 success: function (info) {
-                    if (info == null) {
-                        miniAdmin.error('暂无菜单信息')
+                    
+                    if (info.result.code != 0) {
+                        layer.msg('重新登录', function () {
+                            window.location = '/page/login-1.html';
+                        });
                     } else {
-                        var data = info.result;
+                        var data = info.result.information;
                         miniAdmin.renderLogo(data.logoInfo);
                         miniAdmin.renderClear(options.clearUrl);
                         miniAdmin.renderAnim(options.pageAnim);
